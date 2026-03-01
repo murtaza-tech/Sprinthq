@@ -35,6 +35,18 @@ router.post("/", (req, res) => {
     return res.status(400).json({ error: "Name, start_date, and end_date are required" });
   }
 
+  if (typeof name !== "string" || name.length > 200) {
+    return res.status(400).json({ error: "Sprint name must be under 200 characters" });
+  }
+
+  if (goal && goal.length > 1000) {
+    return res.status(400).json({ error: "Sprint goal must be under 1000 characters" });
+  }
+
+  if (tasks && Array.isArray(tasks) && tasks.length > 5000) {
+    return res.status(400).json({ error: "Maximum 5000 tasks per sprint" });
+  }
+
   const insertSprint = db.prepare(
     "INSERT INTO sprints (name, goal, start_date, end_date, project_url, created_by) VALUES (?, ?, ?, ?, ?, ?)"
   );

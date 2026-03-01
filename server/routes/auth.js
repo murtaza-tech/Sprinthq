@@ -13,8 +13,20 @@ router.post("/signup", async (req, res) => {
     return res.status(400).json({ error: "Username and password are required" });
   }
 
-  if (password.length < 6) {
-    return res.status(400).json({ error: "Password must be at least 6 characters" });
+  if (typeof username !== "string" || typeof password !== "string") {
+    return res.status(400).json({ error: "Invalid input" });
+  }
+
+  if (username.length < 3 || username.length > 30) {
+    return res.status(400).json({ error: "Username must be 3-30 characters" });
+  }
+
+  if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+    return res.status(400).json({ error: "Username can only contain letters, numbers, hyphens, and underscores" });
+  }
+
+  if (password.length < 6 || password.length > 128) {
+    return res.status(400).json({ error: "Password must be 6-128 characters" });
   }
 
   const existing = db.prepare("SELECT id FROM users WHERE username = ?").get(username);
@@ -37,7 +49,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  if (!username || !password) {
+  if (!username || !password || typeof username !== "string" || typeof password !== "string") {
     return res.status(400).json({ error: "Username and password are required" });
   }
 

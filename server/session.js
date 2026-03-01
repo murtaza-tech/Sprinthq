@@ -1,7 +1,11 @@
 import { getIronSession } from "iron-session";
 
+if (!process.env.SESSION_SECRET) {
+  throw new Error("SESSION_SECRET environment variable is required. Must be at least 32 characters.");
+}
+
 const sessionOptions = {
-  password: "a-very-long-secret-password-that-is-at-least-32-chars",
+  password: process.env.SESSION_SECRET,
   cookieName: "sprintplanner_session",
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",
