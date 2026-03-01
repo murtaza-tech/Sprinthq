@@ -3,7 +3,11 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const db = new Database(path.join(__dirname, "sprintplanner.db"));
+const isVercel = process.env.VERCEL === "1";
+const dbPath = isVercel
+  ? path.join("/tmp", "sprintplanner.db")
+  : path.join(__dirname, "sprintplanner.db");
+const db = new Database(dbPath);
 
 db.pragma("journal_mode = WAL");
 db.pragma("foreign_keys = ON");
