@@ -1,0 +1,21 @@
+Issue Key,Summary,Status,Story Points,Assignee,Epic Key,Epic Name,Issue Type,Priority
+SP-101,Set up project repository and CI/CD pipeline,Done,3,Alice,SP-100,Infrastructure Setup,Task,High
+SP-102,Design database schema for user management,Done,5,Bob,SP-100,Infrastructure Setup,Story,High
+SP-103,Implement user registration API endpoint,In Progress,5,Alice,SP-200,User Authentication,Story,High
+SP-104,Implement user login with JWT tokens,In Progress,8,Alice,SP-200,User Authentication,Story,Critical
+SP-105,Build login page UI,In Progress,5,Charlie,SP-200,User Authentication,Story,High
+SP-106,Build registration page UI,To Do,3,Charlie,SP-200,User Authentication,Story,Medium
+SP-107,Add password reset functionality,To Do,5,Bob,SP-200,User Authentication,Story,Medium
+SP-108,Create product listing API,In Progress,8,Bob,SP-300,Product Catalog,Story,High
+SP-109,Design product card component,In Review,3,Diana,SP-300,Product Catalog,Task,Medium
+SP-110,Implement product search and filters,To Do,8,Diana,SP-300,Product Catalog,Story,High
+SP-111,Add product detail page,To Do,5,Charlie,SP-300,Product Catalog,Story,Medium
+SP-112,Set up shopping cart state management,To Do,5,Alice,SP-400,Shopping Cart,Story,High
+SP-113,Build cart UI with add/remove items,To Do,8,Charlie,SP-400,Shopping Cart,Story,High
+SP-114,Implement cart persistence in local storage,To Do,3,Diana,SP-400,Shopping Cart,Task,Low
+SP-115,Write unit tests for auth endpoints,In Review,3,Bob,SP-200,User Authentication,Sub-task,Medium
+SP-116,Write unit tests for product API,To Do,3,Diana,SP-300,Product Catalog,Sub-task,Medium
+SP-117,Fix CORS configuration for staging,Done,2,Alice,SP-100,Infrastructure Setup,Bug,Critical
+SP-118,Resolve login redirect loop bug,In Progress,2,Charlie,SP-200,User Authentication,Bug,Critical
+SP-119,Add loading skeletons to product grid,To Do,2,Diana,SP-300,Product Catalog,Task,Low
+SP-120,API rate limiting middleware,To Do,3,Bob,SP-100,Infrastructure Setup,Task,Medium
